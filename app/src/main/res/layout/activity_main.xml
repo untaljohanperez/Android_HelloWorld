@@ -31,6 +31,15 @@
         android:text="0 Clicks"
         android:textSize="28sp"/>
 
+    <TextView
+        android:id="@+id/lblStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="textEnd"
+        android:gravity="end"
+        android:text="On Create"
+        android:layout_marginTop="383dp"/>
+
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/mybtn"
         android:layout_width="match_parent"

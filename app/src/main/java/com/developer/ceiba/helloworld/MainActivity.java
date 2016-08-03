@@ -16,13 +16,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         addListeners();
+        setStatus("onCreate");
     }
 
-    public void Plus(View v){
+    @Override
+    protected void onResume(){
+        super.onResume();
+        setStatus("onResume");
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        setStatus("onPause");
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        setStatus("onStop");
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        setStatus("onStop");
+    }
+
+    protected void Plus(View v){
         setCounter(++counter);
     }
 
-    public void setCounter(int counter){
+    protected void setCounter(int counter){
         TextView txt = (TextView)findViewById(R.id.numClicks);
         String txtCount = Integer.toString(counter);
         if(counter == 1) {
@@ -33,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         txt.setText(txtCount);
     }
 
-    public void addListeners(){
+    protected void addListeners(){
         Button btn = (Button) findViewById(R.id.mybtn);
         assert btn != null;
         btn.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +69,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void setImage(){
+    protected void setStatus(String status)
+    {
+        TextView lblStatus = (TextView) findViewById(R.id.lblStatus);
+        lblStatus.setText(status);
+    }
+
+    protected void setImage(){
         ImageView img = (ImageView) findViewById(R.id.imageViewLogo);
         img.setImageResource(R.drawable.logo);
     }
